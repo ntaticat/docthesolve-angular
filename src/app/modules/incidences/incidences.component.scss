@@ -1,0 +1,62 @@
+.incidence-list {
+  padding: 0.5em;
+}
+
+.incidence-item {
+  border: 2px solid #2227;
+  overflow: hidden;
+
+  &:first-child {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+  }
+
+  // Titulo
+  & p:nth-child(1) {
+    background-color: black;
+    color: white;
+    padding: 0.5em;
+    font-size: 1.25em;
+  }
+
+  // Personas espectando
+  & p:nth-child(2) {
+    text-align: end;
+    padding: 0.5em;
+    font-size: 0.75em;
+  }
+
+  // Descripcion corta
+  & p:nth-child(3) {
+    text-align: center;
+    padding: 0.5em;
+  }
+
+  // Descripcion larga
+  & p:nth-child(4) {
+    text-align: justify;
+    padding: 0.5em;
+  }
+
+  & a {
+    display: inline-block;
+    border: 2px solid #2227;
+    color: #222;
+    text-decoration: none;
+    padding: 0.25em 0.5em;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 250ms;
+    margin: 1em 0;
+
+    &:hover {
+      background: #2227;
+      color: white;
+    }
+  }
+}
