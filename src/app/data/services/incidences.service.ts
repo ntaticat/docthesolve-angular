@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IIncidence } from '../interfaces/incidences.interfaces';
 
@@ -15,6 +15,14 @@ export class IncidencesService {
 
   getIncidences(): Observable<IIncidence[]> {
     const url = `${this.uri}/incidences`;
-    return this.http.get<IIncidence[]>(url);
+    return this.http.get<IIncidence[]>(url)
+      .pipe(
+        catchError((err) => {
+          console.warn("Error caught in Incidences Service");
+          console.error(err);
+          return throwError(() => err);
+        })
+      )
+    ;
   }
 }
